@@ -144,7 +144,7 @@ function show_environment
     echo
     echo "Crowbar /etc/motd"
     echo "---------------------"
-    $ssh root@$adminip "cat /etc/motd"
+    ping -q -c 1 -w 1 $adminip >/dev/null && $ssh root@$adminip "cat /etc/motd"
     echo
     echo "Environment Details"
     echo "-------------------------------"
