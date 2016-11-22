@@ -3,6 +3,7 @@ from __future__ import print_function
 import glob
 import itertools as it
 import os
+import time
 import re
 import string
 import xml.etree.ElementTree as ET
@@ -381,3 +382,4 @@ def vm_start(args):
     dom = conn.lookupByName(vmname)
     print("booting {0} VM".format(vmname))
     dom.create()
+    time.sleep(5) # give tftp some time to load kernel+initrd before next instances block all CPUs https://bugzilla.suse.com/show_bug.cgi?id=1011656
